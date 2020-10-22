@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.proDao">
+    <sql id="all">
+        select * from products
+    </sql>
+    <select id="getAllpro" resultType="Pro">
+        <include refid="all"></include>
+    </select>
+
+    <sql id="del">
+        delete from products where pid=#{pid}
+    </sql>
+    <delete id="del">
+        <include refid="del"></include>
+    </delete>
+
+    <sql id="update">
+    update products set pname=#{pname},price=#{price} where pid=#{pid}
+    </sql>
+    <update id="update">
+        <include refid="update"></include>
+    </update>
+
+    <sql id="one">
+        select * from products where pid=#{pid}
+    </sql>
+    <select id="getBypid" resultType="Pro">
+        <include refid="one"></include>
+    </select>
+</mapper>
